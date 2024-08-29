@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+	int main() {
+	
+	int a, b, c;
+	cout << "Welcome to the L2DN: Lain's Discriminant Nature Determiner..." << endl;
+	
+	cout << "\n";
+	
+	cout << "Insert the value of your A: ";
+	cin >> a;
+
+	cout << "Insert the value of your B: ";
+	cin >> b;
+
+	cout << "Insert the value of your C: ";
+	cin >> c;
+	
+	cout << "\n";
+	
+	int x = (b*b), y = (a*c), d = (x-4*y);
+
+	cout << "The quadratic equation's discriminant is... " << d << endl;
+
+	bool squa = ( d > 0 ), imag = ( d < 0 ), zero = ( d == 0 );
+
+    if (squa) {
+        int sqrtd = sqrt(d);
+        if (sqrtd * sqrtd == d) {
+            cout << "The roots are real, rational, and unequal." << endl;
+        } else {
+            cout << "The roots are real, irrational, unequal." << endl;
+        }
+    } else if (imag) {
+        cout << "The nature of the roots is imaginary or not real." << endl;
+    } else if (zero) {
+        cout << "The nature of the roots is real, rational, and equal." << endl;
+    }
+    
+    cout << "\n";
+  
+   if (d != 0) {
+   
+	string consent;
+    
+    cout << "Would you like to solve for the roots of the quadratic equation?.." << endl;
+    
+    cout << "Enter 'yes' or 'no': ";
+    cin >> consent;
+    
+for (auto &c : consent) {
+        c = tolower(c);
+    }
+    
+    if (consent == "yes") {
+        if (d >= 0) {
+            double root1 = (-b + sqrt(d)) / (2 * a);
+            double root2 = (-b - sqrt(d)) / (2 * a);
+            cout << "\nThe first solution is " << root1 << " while the second solution is " << root2 << "." << endl;
+        } else {
+            cout << "\nThe roots are imaginary and cannot be solved using real numbers." << endl;
+        }
+    } else if (consent == "no") {
+        cout << "\nThank you for using Lain's Discriminant Nature Determiner! Have a good day!" << endl;
+    } else {
+        cout << "\nInvalid input. Please enter 'yes' or 'no'." << endl;
+    }
+} else {
+    cout << "Thank you for using Lain's Discriminant Nature Determiner! Have a good day!" << endl;
+}
+
+}
